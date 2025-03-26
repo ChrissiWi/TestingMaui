@@ -1,0 +1,12 @@
+.DS_Store
+*/bin
+*/obj
+*/*.sln
+*.sln
+*.pdf
+*/*/bin
+*/*/obj
+*/*/*.sln
+*/*/Platforms
+*/*/Properties
+*/*/Resources
