@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiDamageCalculator.MainPage">
+
+    <ScrollView>
+        <Grid Margin="20">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+           
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Row="0" Grid.Column="0" Text="Flaming" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="End"/>
+            <CheckBox Grid.Row="0" Grid.Column="1" x:Name="Flaming"
+                VerticalOptions="Center" HorizontalOptions="Start" Margin="20,0,0,0" CheckedChanged="Flaming_CheckedChanged"/>
+            <Label Grid.Row="0" Grid.Column="2" Text="Magic" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="End"/>
+            <CheckBox Grid.Row="0" Grid.Column="3" x:Name="Magic" 
+                VerticalOptions="Center" HorizontalOptions="Start" Margin="20,0,0,0" CheckedChanged="Magic_CheckedChanged"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Text="Roll for damage" Clicked="Button_Clicked"/>
+            <Label x:Name="Damage" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Text="Damage" 
+                FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
