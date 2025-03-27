@@ -4,7 +4,9 @@ namespace MauiDamageCalculator;
 
 /// <summary>
 /// Represents a sword's damage calculation system that takes into account base damage,
-/// magic enhancement, and flaming effects.
+/// magic enhancement, and flaming effects. The sword's damage is calculated using a
+/// base damage value plus a multiplier applied to the roll, with additional modifiers
+/// for magic and flaming effects.
 /// </summary>
 public class SwordDamage : WeaponDamage
 {
@@ -28,14 +30,23 @@ public class SwordDamage : WeaponDamage
     /// </summary>
     private const decimal MAGIC_MULTIPLIER = 1.75M;
 
-
+    /// <summary>
+    /// Calculates the total damage of a sword attack based on the current roll,
+    /// magic status, and flaming status.
+    /// </summary>
     public override void CalculateDamage()
     {
         CalculateDamage(Roll, Magic, Flaming);
     }
 
-
-    //also used in Test -> roll is the input parameter
+    /// <summary>
+    /// Calculates the total damage of a sword attack using the specified parameters.
+    /// The damage is calculated as: (roll * multiplier) + base damage + (flaming damage if applicable)
+    /// where multiplier is 1.75 for magical swords and 1 for normal swords.
+    /// </summary>
+    /// <param name="roll">The base roll value from the attack</param>
+    /// <param name="isMagic">Whether the sword is magical</param>
+    /// <param name="isFlaming">Whether the sword has a flaming effect</param>
     public void CalculateDamage(int roll, bool isMagic, bool isFlaming)
     {
         Debug.WriteLine($"Calculating damage with roll: {roll}, isMagic: {isMagic}, isFlaming: {isFlaming}");
@@ -52,6 +63,5 @@ public class SwordDamage : WeaponDamage
             Damage += FLAME_DAMAGE;
         }
     }
-  
 }
 

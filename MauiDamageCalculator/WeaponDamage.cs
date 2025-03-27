@@ -1,11 +1,19 @@
 namespace MauiDamageCalculator;
 
+/// <summary>
+/// Base class for weapon damage calculation that provides common functionality
+/// for tracking roll values, magic status, flaming status, and damage calculation.
+/// </summary>
 public class WeaponDamage
 {
     private int roll;
     private bool isMagic;
     private bool isFlaming;
 
+    /// <summary>
+    /// Gets or sets whether the weapon is magical. Setting this property
+    /// automatically triggers a damage recalculation.
+    /// </summary>
     public bool Magic
     {
         get => isMagic;
@@ -15,6 +23,10 @@ public class WeaponDamage
         }
     }
 
+    /// <summary>
+    /// Gets or sets whether the weapon has a flaming effect. Setting this property
+    /// automatically triggers a damage recalculation.
+    /// </summary>
     public bool Flaming
     {
         get => isFlaming;
@@ -23,10 +35,16 @@ public class WeaponDamage
             CalculateDamage();
         }
     }
+
+    /// <summary>
+    /// Gets the calculated damage value. This property is protected to allow
+    /// derived classes to set its value during damage calculation.
+    /// </summary>
     public int Damage {get; protected set;}
    
-     /// <summary>
-    /// Returns the current roll value stored in the sword.
+    /// <summary>
+    /// Gets or sets the current roll value. Setting this property automatically
+    /// triggers a damage recalculation.
     /// </summary>
     /// <returns>The current roll value, or 0 if no roll has been performed yet</returns>
     public int Roll
@@ -39,12 +57,9 @@ public class WeaponDamage
     }
 
     /// <summary>
-    /// Calculates the total damage of a sword attack based on the roll and enchantments
+    /// Calculates the total damage of a weapon attack based on the roll and enchantments.
+    /// This is a virtual method that should be overridden by derived classes to implement
+    /// their specific damage calculation logic.
     /// </summary>
-    /// <param name="roll">The base roll value from the attack</param>
-    /// <param name="isMagic">Whether the sword is magical</param>
-    /// <param name="isFlaming">Whether the sword has a flaming effect</param>
-    /// <returns>The total calculated damage</returns>
     public virtual void CalculateDamage(){}
-        
 }
