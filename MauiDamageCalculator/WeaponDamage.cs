@@ -4,7 +4,7 @@ namespace MauiDamageCalculator;
 /// Base class for weapon damage calculation that provides common functionality
 /// for tracking roll values, magic status, flaming status, and damage calculation.
 /// </summary>
-public class WeaponDamage
+public abstract class WeaponDamage
 {
     private int roll;
     private bool isMagic;
@@ -61,5 +61,5 @@ public class WeaponDamage
     /// This is a virtual method that should be overridden by derived classes to implement
     /// their specific damage calculation logic.
     /// </summary>
-    public virtual void CalculateDamage(){}
+    public abstract void CalculateDamage();
 }
