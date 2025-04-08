@@ -4,3 +4,4 @@ dotnet sln add Test/
 in MauiDamageCalculator.csproj: net8.0 bei TargetFrameworks ergänzen -> <TargetFrameworks>net8.0;net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
 in MauiDamageCalculator.csproj: Condition="'$(TargetFramework)' != 'net8.0'" bei OutputTyp ergänzen -> <OutputType Condition="'$(TargetFramework)' != 'net8.0'">Exe</OutputType>
 dotnet add Test/Test.csproj reference MauiDamageCalculator/MauiDamageCalculator.csproj
+dotnet build -t:Run -f net8.0-maccatalyst
