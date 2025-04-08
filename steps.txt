@@ -1,4 +1,4 @@
-dotnet new maui -o MauiDamageCalculator
+dotnet new maui -n "MauiDamageCalculator"
 dotnet new mstest -o Test
 dotnet sln add Test/ 
 in MauiDamageCalculator.csproj: net8.0 bei TargetFrameworks ergänzen -> <TargetFrameworks>net8.0;net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
